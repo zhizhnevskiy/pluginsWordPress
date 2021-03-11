@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Status Plugin Innowise
+ * Plugin Name: Status page
  * Description: Изменение статуса страницы!
  * Author: Zhizhnevskiy
  **/
