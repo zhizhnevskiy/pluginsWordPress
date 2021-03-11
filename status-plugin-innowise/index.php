@@ -1,0 +1,9 @@
+<?php
+/**
+ * Plugin Name: Status Plugin Innowise
+ * Description: Изменение статуса страницы!
+ * Author: Zhizhnevskiy
+ **/
+
+// Подключаю functions.php, используя require_once, чтобы остановить скрипт, если functions.php не найден
+require_once plugin_dir_path(__FILE__) . 'includes/functions.php';
