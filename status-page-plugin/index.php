@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Status page
- * Description: Изменение статуса страницы!
+ * Description: Changing page status!
  * Author: Zhizhnevskiy
  **/
 

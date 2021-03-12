@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Extra menu
- * Description: Установка дополнительного меню в Настройки!
+ * Description: Installing an additional menu in Settings!
  * Author: Zhizhnevskiy
  **/
 

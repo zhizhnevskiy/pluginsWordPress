@@ -1,7 +1,8 @@
 <?php
 /**
  * Plugin Name: Meta Box
- * Description: Добавляем Meta Box
+ * Description: Add Meta Box
+ * Author: Zhizhnevskiy
  **/
 
 ## Добавляем блоки в основную колонку на страницах постов и пост. страниц
@@ -34,7 +35,7 @@ function meta_box_callback($post, $meta)
             <input type="radio" id="myplugin_new_field" name="myplugin_new_field" value="personal">
             <label for="myplugin_new_field">Personal</label>
             <br><br>
-            <input type="radio" id="myplugin_new_field" name="myplugin_new_field" value="password protected">
+            <input type="radio" id="myplugin_new_field" name="myplugin_new_field" value="password_protected">
             <label for="myplugin_new_field">Password protected</label>
             <br><br>
         </div>
