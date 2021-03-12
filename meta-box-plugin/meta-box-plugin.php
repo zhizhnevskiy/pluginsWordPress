@@ -24,8 +24,6 @@ function meta_box_callback($post, $meta)
     $value = get_post_meta($post->ID, 'my_meta_key', 1);
 
     // Поля формы для введения данных
-    //echo '<label for="myplugin_new_field">' . __("Description for this field", 'myplugin_textdomain') . '</label> ';
-    //echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" value="' . $value . '" size="25" />';
     ?>
     <form  action="functions.php">
         <p>Please select your status page:</p>
