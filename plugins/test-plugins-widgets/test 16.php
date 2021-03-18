@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Test 11
- * Description: Getting course dollar with Cron!
+ * Plugin Name: Test 16
+ * Description: Getting course dollar for Course Widget!
  * Author: Zhizhnevskiy
  **/
 
@@ -37,40 +37,29 @@ if ( ! wp_next_scheduled( 'geting_course_dollar' ) ) {
 	wp_schedule_event( time(), 'two_hours', 'geting_course_dollar' );
 }
 
-//function my_action_course_function( $text, $data = null ) {
-//	echo 'Событие `my_course` сработало сейчас.';
-
 // Хук и функция, которая будет выполняться по Крону
 add_action( 'geting_course_dollar', 'get_real_course_dollar' );
+
 function get_real_course_dollar() {
-	include 'inc/simple_html_dom.php';
-	//$html   = file_get_html( 'https://news.yandex.ru/quotes/1.html' );
-	$html   = file_get_html( 'https://myfin.by/currency' );
-	$value  = $html->find( '.quote_current_yes', 0 )->find( '.quote__value', 0 )->plaintext;
-	$date   = $html->find( '.quote_current_yes', 0 )->find( '.quote__date', 0 )->plaintext;
-	$course = array( 'dollar' => $value, 'date' => $date, 'check' => current_time( 'mysql', 1 ) );
-	update_option( 'i_price_course_dollar', $course, 'yes' );
+
+	$USD        = file_get_contents( 'https://www.nbrb.by/api/exrates/rates/USD?parammode=2' );
+	$course_USD = json_decode( $USD, true );
+
+	$RUB        = file_get_contents( 'https://www.nbrb.by/api/exrates/rates/RUB?parammode=2' );
+	$course_RUB = json_decode( $RUB, true );
+
+	$EUR        = file_get_contents( 'https://www.nbrb.by/api/exrates/rates/EUR?parammode=2' );
+	$course_EUR = json_decode( $EUR, true );
+
+	global $wpdb;
+
+	$wpdb->insert(
+		$wpdb->prefix . 'course', // указываем таблицу
+		array( // 'название_колонки' => 'значение'
+			'RUB' => $course_RUB['Cur_OfficialRate'],
+			'USD' => $course_USD['Cur_OfficialRate'],
+			'EUR' => $course_EUR['Cur_OfficialRate']
+		)
+	);
 }
 
-
-// Выводит данные курса
-function the_course_dollar( $data = null ) {
-	echo get_course_dollar( $data );
-}
-
-// Возвращает данные курса
-function get_course_dollar( $data = null ) {
-	$course = get_option( 'i_price_course_dollar' );
-	if ( ! $data || $data == 'dollar' ) {
-		return $course['dollar'];
-	}
-	if ( $data == 'date' ) {
-		return $course['date'];
-	}
-	if ( $data == 'check' ) {
-		return $course['check'];
-	}
-}
-
-//}
-//do_action( 'my_course' );
