@@ -39,14 +39,40 @@ add_action( 'geting_course_dollar', 'get_real_course' );
 
 function get_real_course() {
 
-	$USD        = file_get_contents( 'https://www.nbrb.by/api/exrates/rates/USD?parammode=2' );
-	$course_USD = json_decode( $USD, true );
+//option number 1 (file_get_content)
+	//$RUB        = file_get_contents( 'https://www.nbrb.by/api/exrates/rates/RUB?parammode=2' );
+	//$course_RUB = json_decode( $RUB, true );
+	//$USD        = file_get_contents( 'https://www.nbrb.by/api/exrates/rates/USD?parammode=2' );
+	//$course_USD = json_decode( $USD, true );
+	//$EUR        = file_get_contents( 'https://www.nbrb.by/api/exrates/rates/EUR?parammode=2' );
+	//$course_EUR = json_decode( $EUR, true );
 
-	$RUB        = file_get_contents( 'https://www.nbrb.by/api/exrates/rates/RUB?parammode=2' );
-	$course_RUB = json_decode( $RUB, true );
+//option number 2 (wp_remote_get)
+	//$RUB = wp_remote_get('https://www.nbrb.by/api/exrates/rates/RUB?parammode=2');
+	//$course_RUB = json_decode( $RUB['body'], true );
+	//$USD = wp_remote_get('https://www.nbrb.by/api/exrates/rates/USD?parammode=2');
+	//$course_USD = json_decode( $USD['body'], true );
+	//$EUR = wp_remote_get('https://www.nbrb.by/api/exrates/rates/EUR?parammode=2');
+	//$course_EUR = json_decode( $EUR['body'], true );
 
-	$EUR        = file_get_contents( 'https://www.nbrb.by/api/exrates/rates/EUR?parammode=2' );
-	$course_EUR = json_decode( $EUR, true );
+//option number 3 (curl)
+	$RUB = curl_init();
+	curl_setopt( $RUB, CURLOPT_URL, 'https://www.nbrb.by/api/exrates/rates/RUB?parammode=2' );
+	curl_setopt( $RUB, CURLOPT_RETURNTRANSFER, true );
+	$content = curl_exec( $RUB );
+	$course_RUB = json_decode( $content, true );
+
+	$USD = curl_init();
+	curl_setopt( $USD, CURLOPT_URL, 'https://www.nbrb.by/api/exrates/rates/USD?parammode=2' );
+	curl_setopt( $USD, CURLOPT_RETURNTRANSFER, true );
+	$content = curl_exec( $USD );
+	$course_USD = json_decode( $content, true );
+
+	$EUR = curl_init();
+	curl_setopt( $EUR, CURLOPT_URL, 'https://www.nbrb.by/api/exrates/rates/EUR?parammode=2' );
+	curl_setopt( $EUR, CURLOPT_RETURNTRANSFER, true );
+	$content = curl_exec( $EUR );
+	$course_EUR = json_decode( $content, true );
 
 	global $wpdb;
 
