@@ -42,8 +42,8 @@ class read_widget extends WP_Widget {
 			"SELECT name, message 
 	        FROM {$wpdb->prefix}messages"
 		);
-		/* вытаскивает из базы данных заголовки и содержимое
-		всех опубликованных сообщений */
+		/* take headers and content from the database
+        all posted messages */
 		if ( $message ) {
 			foreach ( $message as $data ) {
 				echo 'Сообщение: "' . $data->message .

@@ -36,14 +36,14 @@ class course_widget extends WP_Widget {
 		//output
 		//echo __( 'This is a widget from Zhizhnevskiy', 'course_widget_domain' );
 		//echo $args['after_widget'];
-		echo 'Сегодня ' . date( 'd.m.Y') . '<br>';
+		echo '<b>Сегодня ' . date( 'd.m.Y' ) . '</b><br>';
 
 		global $wpdb;
 		$courses = $wpdb->get_results(
 			"SELECT RUB, USD , EUR
 	        FROM {$wpdb->prefix}course ORDER BY id DESC LIMIT 1"
 		);
-		/* вытаскивает из базы данных курсы валют */
+		// take currency rates from the database
 		if ( $courses ) {
 			foreach ( $courses as $data ) {
 				echo 'Доллар США: ' . $data->USD . '<br>' .

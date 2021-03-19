@@ -5,23 +5,23 @@
  * Author: Zhizhnevskiy
  **/
 
-function create_register_widget() {
-	register_widget( 'create_widget' );
+function message_register_widget() {
+	register_widget( 'message_widget' );
 }
 
-add_action( 'widgets_init', 'create_register_widget' );
+add_action( 'widgets_init', 'message_register_widget' );
 
-class create_widget extends WP_Widget {
+class message_widget extends WP_Widget {
 
 // constructor function
 	function __construct() {
 		parent::__construct(
 		// widget ID
-			'create_widget',
+			'message_widget',
 			// widget name
-			__( 'Message Widget (Zhizhnevskiy)', ' create_widget_domain' ),
+			__( 'Message Widget (Zhizhnevskiy)', ' message_widget_domain' ),
 			// widget description
-			array( 'description' => __( 'Message widget for WordPress', 'create_widget_domain' ), )
+			array( 'description' => __( 'Message widget for WordPress', 'message_widget_domain' ), )
 		);
 	}
 
@@ -34,11 +34,11 @@ class create_widget extends WP_Widget {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 		//output
-		//echo __( 'This is a widget from Zhizhnevskiy', 'create_widget_domain' );
+		//echo __( 'This is a widget from Zhizhnevskiy', 'message_widget_domain' );
 		//echo $args['after_widget'];
 		?>
 
-        <form class="wrap" action="" method="post">
+        <form class="wrap" action="test13.php" method="post">
             <span>Please write your name:</span> <br>
             <input type="text" name="name">
             <br>
@@ -54,14 +54,10 @@ class create_widget extends WP_Widget {
 		global $wpdb;
 		if ( ! empty( $message && $name ) ) {
 			$wpdb->insert(
-				$wpdb->prefix . 'messages', // указываем таблицу
-				array( // 'название_колонки' => 'значение'
-					'name'   => $name,
+				$wpdb->prefix . 'messages', // indicate the table
+				array( // 'column_name' => 'value'
+					'name'    => $name,
 					'message' => $message
-				),
-				array(
-					'%s', // %s - значит строка
-					'%s' // %s - значит строка
 				)
 			);
 		}
@@ -72,7 +68,7 @@ class create_widget extends WP_Widget {
 		if ( isset( $instance['title'] ) ) {
 			$title = $instance['title'];
 		} else {
-			$title = __( 'Message Widget', 'create_widget_domain' );
+			$title = __( 'Message Widget', 'message_widget_domain' );
 		}
 		?>
 

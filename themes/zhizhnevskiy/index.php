@@ -2,8 +2,8 @@
 /**
  * The main template file
  */
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+error_reporting( E_ALL );
+ini_set( 'display_errors', 1 );
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -11,8 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
-// циклы вывода записей
-// если записи найдены
+// write cycles
 if ( have_posts() ) {
 	while ( have_posts() ) {
 		the_post();
@@ -21,7 +20,8 @@ if ( have_posts() ) {
 
 		echo get_the_excerpt();
 	}
-} // если записей не найдено
+}
+// if no records found
 else {
 	echo ' <p>Записей нет...</p>';
 }
