@@ -2,13 +2,14 @@
     <h1>Status Page</h1>
     <h2>Plugin innowise</h2>
 </div>
-<form class="wrap" action="functions.php" method="post">
+<form class="wrap" action="" method="post">
 
     <p>Please select your page:</p>
 
     <select name="pages">
 
 		<?php
+
 		$my_wp_pages = get_pages();
 		foreach ( $my_wp_pages as $value ) {
 			$post  = get_post( $value );
@@ -30,8 +31,15 @@
     </select>
 
     <br><br>
-
+    <?php
+    add_action( 'wp_ajax_(action)', 'action_function_name_5825' );
+    function action_function_name_5825(){
+    ?>
     <button type="submit">Submit</button>
+    <?php
+      }
+    do_action( "wp_ajax_(action)" );
+    ?>
 
     <br><br>
 
@@ -55,7 +63,7 @@ echo apply_filters( 'my_filter', 'Yuriy' ); //> Hello Yuriy
 <?php
 //test №2
 function my_action_function( $text ) {
-	echo 'Событие `my_action` сработало сейчас.';
+	echo 'Событие `my_action` сработало сейчас. <br>';
 }
 
 // Прикрепим функцию к событию 'my_action'
