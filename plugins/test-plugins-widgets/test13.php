@@ -36,9 +36,6 @@ class message_widget extends WP_Widget {
 		//output
 		//echo __( 'This is a widget from Zhizhnevskiy', 'message_widget_domain' );
 		//echo $args['after_widget'];
-
-		add_action( 'wp_ajax_(action)', 'action_function_name_5825' );
-		function action_function_name_5825(){
 		?>
 
         <form class="wrap" action="" method="post">
@@ -52,8 +49,6 @@ class message_widget extends WP_Widget {
         </form><br>
 
 		<?php
-		}
-		do_action( "wp_ajax_(action)" );
 
 		$message = $_POST['message'] ?? '';
 		$name    = $_POST['name'] ?? '';
