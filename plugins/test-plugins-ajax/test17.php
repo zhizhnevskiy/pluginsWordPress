@@ -40,6 +40,10 @@ function my_action_javascript() {
 add_action( 'wp_enqueue_scripts', 'my_assets' );
 function my_assets() {
 
+	// add js and css
+	wp_enqueue_script( 'sweetalert', plugins_url( 'assets/sweetalert.js', __FILE__ ), array( 'jquery' ) );
+	wp_enqueue_style( 'sweetalert', plugins_url( 'assets/sweetalert.css', __FILE__ ) );
+
 	wp_enqueue_script( 'custom01', plugins_url( 'custom01.js', __FILE__ ), array( 'jquery' ) );
 
 	wp_localize_script( 'custom01', 'myPlugin', array(
