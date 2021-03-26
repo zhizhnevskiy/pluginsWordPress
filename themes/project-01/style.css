@@ -34,21 +34,15 @@ a {
     text-decoration: none;
 }
 
-@media screen and (max-width: 800px) {
-    .my-body {
-        width: 100%;
-    }
-}
-
 /** HEADER */
 
 .header_img {
     max-width: 20%;
-    /** height: auto; */
     margin: 2em;
 }
 
 /** HEADER MENU */
+
 #nav1 {
     position: relative;
     right: 0em;
@@ -175,15 +169,15 @@ a {
     height: 1px;
 }
 
-/** Adaptive design */
+/** ADAPTIVE DESIGN */
 
 @media screen and (max-width: 800px) {
+
+    /** INDEX */
     .my-body {
         width: 100%;
     }
-}
 
-@media screen and (max-width: 800px) {
     .article-loop {
         width: 99%;
         margin: 5%;
@@ -205,9 +199,13 @@ a {
 
 @media screen and (max-width: 400px) {
 
+    /** INDEX */
+
     .article-loop {
         margin: 0;
     }
+
+    /** INDEX, PAGE, SINGLE, SIDEBAR */
 
     .content-area,
     .primary-sidebar {
