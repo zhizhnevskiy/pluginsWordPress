@@ -1,0 +1,228 @@
+/**
+ * Theme Name:  CRS Laboratories
+ * Theme URI:
+ * Author:      Innowise, Zhizhnevskiy
+ * Author URI:  https://innowise-group.com/
+ * Description: CRS Laboratories
+ * License:
+ * License URI:
+ * Tags:
+ * Text Domain:
+ * Version:     1.0
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+/** BODY */
+
+.my-body {
+    width: 60%;
+    margin: auto;
+    font-family: century-gothic, sans-serif;
+    overflow-x: hidden;
+}
+
+.a {
+    color: #2543DE;
+    text-decoration: underline;
+}
+
+a {
+    color: #2543DE;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 800px) {
+    .my-body {
+        width: 100%;
+    }
+}
+
+/** HEADER */
+
+.header_img {
+    max-width: 20%;
+    /** height: auto; */
+    margin: 2em;
+}
+
+/** HEADER MENU */
+#nav1 {
+    position: relative;
+    right: 0em;
+}
+
+#nav1 ul {
+}
+
+#nav1 ul::after {
+}
+
+#nav1 ul li {
+    display: inline-block;
+}
+
+#nav1 ul li a {
+    padding: 1em 1em 0px 1em;
+    font-size: 1em;
+    color: #000000;
+    text-decoration: none;
+}
+
+#nav1 ul li a:hover {
+    color: #8245c4;
+    text-decoration: underline;
+}
+
+/** INDEX */
+
+.article-loop {
+    width: 45%;
+    text-align: left;
+    margin: 5px;
+    padding: 10px;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 4px;
+}
+
+/** PAGE and SINGLE */
+
+.content-area {
+    display: inline-block;
+}
+
+.content-thin {
+    width: 70%;
+}
+
+.content-full-width {
+    width: 100%;
+}
+
+.article-full {
+    width: 99%;
+    padding: 1%;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 4px;
+}
+
+/* SIDEBAR */
+
+.primary-sidebar {
+    display: inline-block;
+    width: 25%;
+    padding: 1%;
+    vertical-align: top;
+}
+
+/** FOOTER */
+
+.footer {
+    width: 100%;
+    line-height: 2;
+}
+
+.footer-table {
+    font-size: 12px;
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.footer-table-cell_1 {
+    top: 50%;
+    width: 18%;
+    display: inline-block;
+}
+
+.footer-table-cell_2 {
+    width: 30%;
+    display: inline-block;
+}
+
+.footer-table-cell_3 {
+    width: 40%;
+    display: inline-block;
+}
+
+.a {
+    color: #2543DE;
+    text-decoration: underline;
+}
+
+.footer_img_1 {
+    height: 100px;
+    margin-left: 20px;
+}
+
+.footer_img_2 {
+    height: 80px;
+    margin-left: 20px;
+}
+
+.footer-copyright {
+    color: #B2B2B2;
+    font-size: 12px;
+}
+
+.footer-line {
+    border: none;
+    background-color: #B2B2B2;
+    height: 1px;
+}
+
+/** Adaptive design */
+
+@media screen and (max-width: 800px) {
+    .my-body {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .article-loop {
+        width: 99%;
+        margin: 5%;
+    }
+
+    /** FOOTER */
+    .footer {
+        margin: 5%;
+    }
+
+    .footer-table-cell_1,
+    .footer-table-cell_2,
+    .footer-table-cell_3 {
+        width: 100%;
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .article-loop {
+        margin: 0;
+    }
+
+    .content-area,
+    .primary-sidebar {
+        width: 100%;
+        margin: 5%;
+    }
+
+    /** FOOTER */
+    .footer_img_1 {
+        height: 60px;
+        margin-left: 20px;
+    }
+
+    .footer_img_2 {
+        height: 50px;
+        margin-left: 20px;
+    }
+}
