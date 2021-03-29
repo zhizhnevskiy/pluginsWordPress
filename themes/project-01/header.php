@@ -31,10 +31,18 @@ if (!defined('ABSPATH')) {
 
 <header class="my-logo">
 
+<<<<<<< HEAD
     <a href="<?php echo esc_url(home_url('/')); ?>">
         <img class="header_img" src="/wp-content/themes/project-01/assets/images/CRS%20logo.png" alt="logo">
     </a>
 
+=======
+    <h1>
+        <a href="<?php echo esc_url(home_url('/')); ?>">
+            <img class="header_img" src="/wp-content/themes/project-01/assets/images/CRS%20logo.png" alt="logo">
+        </a>
+    </h1>
+>>>>>>> origin/master
 
     <nav id="nav1">
         <?php // add head menu
