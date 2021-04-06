@@ -19,9 +19,10 @@ if (!defined('ABSPATH')) {
         <?php bloginfo('name'); ?> &raquo; <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>
     </title>
 
+    <meta http-equiv="Content-type" content="text/html">
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
+    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
     <?php wp_head(); ?>
 
@@ -31,20 +32,16 @@ if (!defined('ABSPATH')) {
 
 <header class="my-logo">
 
-<<<<<<< HEAD
+    <section class="translate">
+        <?php echo do_shortcode('[weglot_switcher]'); ?>
+    </section>
+
     <a href="<?php echo esc_url(home_url('/')); ?>">
         <img class="header_img" src="/wp-content/themes/project-01/assets/images/CRS%20logo.png" alt="logo">
     </a>
 
-=======
-    <h1>
-        <a href="<?php echo esc_url(home_url('/')); ?>">
-            <img class="header_img" src="/wp-content/themes/project-01/assets/images/CRS%20logo.png" alt="logo">
-        </a>
-    </h1>
->>>>>>> origin/master
-
     <nav id="nav1">
+
         <?php // add head menu
         wp_nav_menu(array(
             'theme_location' => 'header_menu',

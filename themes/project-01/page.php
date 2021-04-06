@@ -5,17 +5,13 @@
 
 get_header(); ?>
 
-    <main class="wrap">
+    <div class="div_page">
 
-        <section class="content-area content-thin">
+        <section>
 
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-                <article class="article-full">
-                    <header>
-                        <h2><?php the_title(); ?></h2>
-                        Author: <?php the_author(); ?>
-                    </header>
+                <article>
                     <?php the_content(); ?>
                 </article>
 
@@ -29,6 +25,6 @@ get_header(); ?>
 
         </section>
 
-    </main>
+    </div>
 
 <?php get_footer();

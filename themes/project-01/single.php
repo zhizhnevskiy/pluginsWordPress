@@ -5,18 +5,23 @@
 
 get_header(); ?>
 
-    <main class="wrap">
+    <div class="div_page">
 
-        <section class="content-area content-full-width">
+        <section >
 
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-                <article class="article-full">
+                <article >
                     <header>
                         <h2><?php the_title(); ?></h2>
                         Author: <?php the_author(); ?>
                     </header>
                     <?php the_content(); ?>
+                    <?php
+                    if ( comments_open() || get_comments_number() ) {
+                        comments_template();
+                    }
+                    ?>
                 </article>
 
             <?php endwhile; else : ?>
@@ -29,6 +34,6 @@ get_header(); ?>
 
         </section>
 
-    </main>
+    </div>
 
 <?php get_footer();
